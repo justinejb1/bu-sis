@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+      <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
+      <link href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css'>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+      <link rel="icon" type="image/png" href="images/BU-small-logo.png"/>
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+      <title>Student Information System</title>
+   </head>
+   <body>
+      <div class="header">
+         <img id="bu_logo" src="img/Bicol_University_logo.png">
+         <div class="design"></div>
+         <div class="parallelogram"></div>
+         <div id="BICOL_UNIVERSITY_-_SIS">
+            <span>BICOL UNIVERSITY - SIS</span>
+         </div>
+      </div>
+      <input type="checkbox" id="sidebar-toggle">
+      <div class="sidebar">
+         <div class="sidebar-header">
+            <h3 class="brand">
+               <span  class="fa fa-graduation-cap" aria-hidden="true"></span>
+               <span>Administrator</span>
+            </h3>
+            <label for="sidebar-toggle" class="fa fa-bars" aria-hidden="true"></label>
+         </div>
+         <!-- <header>
+            <div class="search-wrapper">
+              <span class="fa fa-search" aria-hidden="true"></span>
+              <input type="search" placeholder="Search">
+            </div>
+            <div class="social-icons">
+              <span class="ti-bell"></span>
+              <span class="ti-comment"></span>
+              <div></div>
+            </div>
+            </header> -->
+         <div class="sidebar-menu">
+            <ul>
+               <li><a href="index.html">
+                  <span class="fa fa-home" aria-hidden="true"></span>
+                  <span>Home</span>
+                  </a>
+               </li>
+               <li><a href="attendance.html">
+                  <span class="fa fa-address-book" aria-hidden="true"></span>
+                  <span>Attendance</span>
+                  </a>
+               </li>
+               <li><a href="students.html">
+                  <span class="fa fa-users" aria-hidden="true"></span>
+                  <span>Students</span>
+                  </a>
+               </li>
+               <li><a href="courses.html">
+                  <span class="fa fa-thumb-tack" aria-hidden="true"></span>
+                  <span>Courses</span>
+                  </a>
+               </li>
+               <li><a href="statistics.html">
+                  <span class="fa fa-clipboard" aria-hidden="true"></span>
+                  <span>Statistics</span>
+                  </a>
+               </li>
+               <li><a href="department.html">
+                  <span class="fa fa-folder-open" aria-hidden="true"></span>
+                  <span>Departments</span>
+                  </a>
+               </li>
+               <li><a href="accounts.html">
+                  <span class="fa fa-cog" aria-hidden="true"></span>
+                  <span>Accounts</span>
+                  </a>
+               </li>
+               <li><a href="#" onclick="signout()">
+                  <span class="fas fa-sign-out-alt" aria-hidden="true"></span>
+                  <span>Logout</span>
+                  </a>
+               </li>
+            </ul>
+         </div>
+      </div>
+      <div class="main-content">
+         <main>
+            <h2 class="dash-title">Attendance Overview</h2>
+            <section class="recent1">
+               <div id="calendar_basic"></div>
+            </section>
+         </main>
+         <div class="footer">
+            <p style="text-align: center">
+               Copyright &copy; <script>document.write(new Date().getFullYear())</script> BSCS3C All Rights Reserved
+            </p>
+         </div>
+      </div>
+   </body>
+   <script type="text/javascript">
+      google.charts.load("current", {packages:["calendar"]});
+      google.charts.setOnLoadCallback(drawChart);
+      
+      function drawChart() {
+       var dataTable = new google.visualization.DataTable();
+       dataTable.addColumn({ type: 'date', id: 'Date' });
+       dataTable.addColumn({ type: 'number', id: 'Won/Loss' });
+       dataTable.addRows([
+          [ new Date(2018, 3, 13), 37032, ],
+          [ new Date(2018, 3, 14), 38024 ],
+          [ new Date(2018, 3, 15), 38024 ],
+          [ new Date(2018, 3, 16), 38108 ],
+          [ new Date(2018, 3, 17), 38229 ],
+          [ new Date(2018, 8, 28), 38249 ],
+          // Many rows omitted for brevity.
+          [ new Date(2019, 9, 4), 38177 ],
+          [ new Date(2019, 9, 5), 38705 ],
+          [ new Date(2019, 9, 12), 38210 ],
+          [ new Date(2019, 9, 13), 38029 ],
+          [ new Date(2019, 9, 19), 38823 ],
+          [ new Date(2019, 9, 23), 38345 ],
+          [ new Date(2019, 9, 24), 38436 ],
+          [ new Date(2019, 9, 30), 38447 ]
+        ]);
+      
+       var chart = new google.visualization.Calendar(document.getElementById('calendar_basic'));
+      
+       var options = {
+         title: "Student Attendance",
+         height: 400,
+         calendar: { cellSize: 20 },
+       };
+      
+       chart.draw(dataTable, options);
+      }
+   </script>
+   <script src="assets/js/checkToken.js"></script>
+   <script src="assets/js/logout.js"></script>
+</html>

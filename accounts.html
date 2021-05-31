@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" /> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'></script>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css'>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>Student Information System</title>
+</head>
+<body>
+    <div class="header">
+        <img id="bu_logo" src="img/Bicol_University_logo.png">
+        <div class="design"></div>
+        <div class="parallelogram"></div>
+        <div id="BICOL_UNIVERSITY_-_SIS">
+          <span>BICOL UNIVERSITY - SIS</span>
+        </div>
+    </div>
+    <input type="checkbox" id="sidebar-toggle">
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h3 class="brand">
+          <span  class="fa fa-graduation-cap" aria-hidden="true"></span>
+          <span>Administrator</span>
+        </h3>
+        <label for="sidebar-toggle" class="fa fa-bars" aria-hidden="true"></label>
+      </div>
+      <div class="sidebar-menu">
+          <ul>
+            <li><a href="index.html">
+                <span class="fa fa-home" aria-hidden="true"></span>
+                <span>Home</span>
+              </a>
+            </li>
+            <li><a href="attendance.html">
+              <span class="fa fa-address-book" aria-hidden="true"></span>
+              <span>Attendance</span>
+            </a>
+            </li>
+            <li><a href="students.html">
+                <span class="fa fa-users" aria-hidden="true"></span>
+                <span>Students</span>
+              </a>
+            </li>
+            <li><a href="courses.html">
+              <span class="fa fa-thumb-tack" aria-hidden="true"></span>
+              <span>Courses</span>
+            </a>
+            </li>
+            <li><a href="statistics.html">
+              <span class="fa fa-clipboard" aria-hidden="true"></span>
+              <span>Statistics</span>
+            </a>
+            </li>
+            <li><a href="department.html">
+              <span class="fa fa-folder-open" aria-hidden="true"></span>
+              <span>Departments</span>
+            </a>
+            </li>
+            <li><a href="accounts.html">
+              <span class="fa fa-cog" aria-hidden="true"></span>
+              <span>Accounts</span>
+            </a>
+            </li>
+            <li><a href="#" onclick="signout()">
+                <span class="fas fa-sign-out-alt" aria-hidden="true"></span>
+                <span>Logout</span>
+              </a>
+            </li>
+          </ul>
+      </div>
+    </div>
+    <div class="main-content">
+        <main>
+            <h2 class="dash-title">Account Overview</h2>
+            <div class="page-content page-container" id="page-content">
+              <div class="padding">
+                  <div class="row container d-flex justify-content-center">
+                      <div class="col-xl-6 col-md-12">
+                          <div class="card user-card-full">
+                              <div class="row m-l-0 m-r-0">
+                                  <div class="col-sm-4 bg-c-lite-green user-profile">
+                                      <div class="card-block text-center text-white">
+                                          <div class="m-b-25" style="height: 50px;"></div>
+                                          <h6 class="f-w-600" id="name"></h6>
+                                          <p>Administrator</p>
+                                      </div>
+                                  </div>
+                                  <div class="col-sm-8">
+                                      <div class="card-block">
+                                          <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Account</h6>
+                                          <div class="row">
+                                              <div class="col-sm-6">
+                                                  <p class="m-b-10 f-w-600">Username</p>
+                                                  <h6 class="text-muted f-w-400" id="username"></h6>
+                                              </div>
+                                              <div class="col-sm-6">
+                                                  <p class="m-b-10 f-w-600">Password</p>
+                                                  <h6 class="text-muted f-w-400">Not Available</h6>
+                                              </div>
+                                              <div class="col-sm-6">
+                                                <p class="m-b-10 f-w-600">Phone Number</p>
+                                                <h6 class="text-muted f-w-400" id="phone_number"></h6>
+                                            </div>
+                                          </div>
+                                          <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Other Info</h6>
+                                          <div class="row">
+                                              <div class="col-sm-6">
+                                                  <p class="m-b-10 f-w-600">Address</p>
+                                                  <h6 class="text-muted f-w-400" id="address"></h6>
+                                              </div>
+                                              <div class="col-sm-6">
+                                                  <p class="m-b-10 f-w-600">Privilege</p>
+                                                  <h6 class="text-muted f-w-400" id="privilege"></h6>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </main>
+        <div class="footer">
+            <p style="text-align: center"> Copyright &copy; <script>document.write(new Date().getFullYear())</script> BSCS3C All Rights Reserved</p>
+        </div>
+    </div>
+    <script src="assets/js/accounts.js"></script>
+    <script src="assets/js/logout.js"></script>
+</body>
+<style>
+.padding {
+    padding: 3rem !important
+}
+
+.user-card-full {
+    overflow: hidden
+}
+
+.card {
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+    box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+    border: none;
+    margin-bottom: 30px
+}
+
+.m-r-0 {
+    margin-right: 0px
+}
+
+.m-l-0 {
+    margin-left: 0px
+}
+
+.user-card-full .user-profile {
+    border-radius: 5px 0 0 5px
+}
+
+.bg-c-lite-green {
+    background: #ffc619;
+}
+
+.user-profile {
+    padding: 20px 0
+}
+
+.card-block {
+    padding: 1.25rem
+}
+
+.m-b-25 {
+    margin-bottom: 25px
+}
+
+.img-radius {
+    border-radius: 5px
+}
+
+h6 {
+    font-size: 14px
+}
+
+.card .card-block p {
+    line-height: 25px
+}
+
+@media only screen and (min-width: 1400px) {
+    p {
+        font-size: 14px
+    }
+}
+
+.card-block {
+    padding: 1.25rem
+}
+
+.b-b-default {
+    border-bottom: 1px solid #e0e0e0
+}
+
+.m-b-20 {
+    margin-bottom: 20px
+}
+
+.p-b-5 {
+    padding-bottom: 5px !important
+}
+
+.card .card-block p {
+    line-height: 25px
+}
+
+.m-b-10 {
+    margin-bottom: 10px
+}
+
+.text-muted {
+    color: #919aa3 !important
+}
+
+.b-b-default {
+    border-bottom: 1px solid #e0e0e0
+}
+
+.f-w-600 {
+    font-weight: 600
+}
+
+.m-b-20 {
+    margin-bottom: 20px
+}
+
+.m-t-40 {
+    margin-top: 20px
+}
+
+.p-b-5 {
+    padding-bottom: 5px !important
+}
+
+.m-b-10 {
+    margin-bottom: 10px
+}
+
+.m-t-40 {
+    margin-top: 20px
+}
+
+.user-card-full .social-link li {
+    display: inline-block
+}
+
+.user-card-full .social-link li a {
+    font-size: 20px;
+    margin: 0 10px 0 0;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out
+}
+</style>
+</html>

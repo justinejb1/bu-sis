@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+      <script type="text/javascript" src="paginator.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <link rel="icon" type="image/png" href="images/BU-small-logo.png"/>
+      <title>Student Information System</title>
+   </head>
+   <body>
+      <div class="header">
+         <img id="bu_logo" src="img/Bicol_University_logo.png">
+         <div class="design"></div>
+         <div class="parallelogram"></div>
+         <div id="BICOL_UNIVERSITY_-_SIS">
+            <span>BICOL UNIVERSITY - SIS</span>
+         </div>
+      </div>
+      <input type="checkbox" id="sidebar-toggle">
+      <div class="sidebar">
+         <div class="sidebar-header">
+            <h3 class="brand">
+               <span  class="fa fa-graduation-cap" aria-hidden="true"></span>
+               <span>Administrator</span>
+            </h3>
+            <label for="sidebar-toggle" class="fa fa-bars" aria-hidden="true"></label>
+         </div>
+         <div class="sidebar-menu">
+            <ul>
+               <li><a href="index.html">
+                  <span class="fa fa-home" aria-hidden="true"></span>
+                  <span>Home</span>
+                  </a>
+               </li>
+               <li><a href="attendance.html">
+                  <span class="fa fa-address-book" aria-hidden="true"></span>
+                  <span>Attendance</span>
+                  </a>
+               </li>
+               <li><a href="students.html">
+                  <span class="fa fa-users" aria-hidden="true"></span>
+                  <span>Students</span>
+                  </a>
+               </li>
+               <li><a href="courses.html">
+                  <span class="fa fa-thumb-tack" aria-hidden="true"></span>
+                  <span>Courses</span>
+                  </a>
+               </li>
+               <li><a href="statistics.html">
+                  <span class="fa fa-clipboard" aria-hidden="true"></span>
+                  <span>Statistics</span>
+                  </a>
+               </li>
+               <li><a href="department.html">
+                  <span class="fa fa-folder-open" aria-hidden="true"></span>
+                  <span>Departments</span>
+                  </a>
+               </li>
+               <li><a href="accounts.html">
+                  <span class="fa fa-cog" aria-hidden="true"></span>
+                  <span>Accounts</span>
+                  </a>
+               </li>
+               <li><a href="#" onclick="signout()">
+                  <span class="fas fa-sign-out-alt" aria-hidden="true"></span>
+                  <span>Logout</span>
+                  </a>
+               </li>
+            </ul>
+         </div>
+      </div>
+      <div class="main-content">
+         <main>
+            <h2 class="dash-title">Statistics Overview</h2>
+            <section class="recent1">
+               <div class="container">
+                  <div class="container-inner">
+                     <div class="card-single1">
+                        <div class="card-body">
+                           <span class="fa fa-users" aria-hidden="true" style="color: #004da9;"></span>
+                           <div>
+                              <h5>Total No. of Students Enrolled</h5>
+                              <h4 id="enrolled"></h4>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="card-single1">
+                        <div class="card-body">
+                           <span class="fa fa-users" aria-hidden="true" style="color: #169d53;"></span>
+                           <div>
+                              <h5>Total No. of Regular Students</h5>
+                              <h4 id="regular"></h4>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="card-single1">
+                        <div class="card-body">
+                           <span class="fa fa-users" aria-hidden="true" style="color: #de0f3f;"></span>
+                           <div>
+                              <h5>Total No. Irregular Students</h5>
+                              <h4 id="irregular"></h4>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="card-single1">
+                        <div class="card-body">
+                           <span class="fa fa-users" aria-hidden="true" style="color: #ffc619;"></span>
+                           <div>
+                              <h5>Total No. Transferee Students</h5>
+                              <h4 id="transferee"></h4>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div id="activity-grid1">
+                  <div id="curve_chart" ></div>
+                  <div id="donutchart"></div>
+                  <div id="piechart"></div>
+               </div>
+               <div id="activity-grid4">
+                  <div id="dual_x_div"></div>
+                  <div id="studpop"></div>
+               </div>
+            </section>
+         </main>
+         <script src="assets/js/statistics.js"></script>
+         <script src="assets/js/logout.js"></script>
+         <div class="footer">
+            <p style="text-align: center">
+               Copyright &copy; <script>document.write(new Date().getFullYear())</script> BSCS3C All Rights Reserved
+            </p>
+         </div>
+      </div>
+      <script type="text/javascript">
+         google.charts.load("current", {packages:["corechart"]});
+         google.charts.setOnLoadCallback(drawChart);
+         function drawChart() {
+           
+         
+           
+           var data3 = google.visualization.arrayToDataTable([
+             ['Month', '2019', '2020'],
+             ['January',  2152,      2365],
+             ['February',  2170,      2412],
+             ['March',  2848,       2120],
+             ['April',  2541,      0],
+             ['May',  2574,       0],
+             ['June',  2648,       0],
+             ['July',  2548,       0],
+           ]);
+         
+           var options3 = {
+             title: 'Student Attendance Average',
+             legend: { position: 'bottom' }
+           };
+         
+           var chart3 = new google.visualization.LineChart(document.getElementById('curve_chart'));
+         
+           chart3.draw(data3, options3);
+         
+           
+         
+         
+         }
+         
+         
+         
+         $(window).resize(function() {
+           drawChart();
+         });
+      </script>
+   </body>
+</html>

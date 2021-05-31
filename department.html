@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+      <script type="text/javascript" src="paginator.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <link rel="icon" type="image/png" href="images/BU-small-logo.png"/>
+      <title>Student Information System</title>
+   </head>
+   <body>
+      <div class="header">
+         <img id="bu_logo" src="img/Bicol_University_logo.png">
+         <div class="design"></div>
+         <div class="parallelogram"></div>
+         <div id="BICOL_UNIVERSITY_-_SIS">
+            <span>BICOL UNIVERSITY - SIS</span>
+         </div>
+      </div>
+      <input type="checkbox" id="sidebar-toggle">
+      <div class="sidebar">
+         <div class="sidebar-header">
+            <h3 class="brand">
+               <span  class="fa fa-graduation-cap" aria-hidden="true"></span>
+               <span>Administrator</span>
+            </h3>
+            <label for="sidebar-toggle" class="fa fa-bars" aria-hidden="true"></label>
+         </div>
+         <div class="sidebar-menu">
+            <ul>
+               <li><a href="index.html">
+                  <span class="fa fa-home" aria-hidden="true"></span>
+                  <span>Home</span>
+                  </a>
+               </li>
+               <li><a href="attendance.html">
+                  <span class="fa fa-address-book" aria-hidden="true"></span>
+                  <span>Attendance</span>
+                  </a>
+               </li>
+               <li><a href="students.html">
+                  <span class="fa fa-users" aria-hidden="true"></span>
+                  <span>Students</span>
+                  </a>
+               </li>
+               <li><a href="courses.html">
+                  <span class="fa fa-thumb-tack" aria-hidden="true"></span>
+                  <span>Courses</span>
+                  </a>
+               </li>
+               <li><a href="statistics.html">
+                  <span class="fa fa-clipboard" aria-hidden="true"></span>
+                  <span>Statistics</span>
+                  </a>
+               </li>
+               <li><a href="department.html">
+                  <span class="fa fa-folder-open" aria-hidden="true"></span>
+                  <span>Departments</span>
+                  </a>
+               </li>
+               <li><a href="accounts.html">
+                  <span class="fa fa-cog" aria-hidden="true"></span>
+                  <span>Accounts</span>
+                  </a>
+               </li>
+               <li><a href="#" onclick="signout()">
+                  <span class="fas fa-sign-out-alt" aria-hidden="true"></span>
+                  <span>Logout</span>
+                  </a>
+               </li>
+            </ul>
+         </div>
+      </div>
+      <div class="main-content">
+         <main>
+            <h2 class="dash-title">Departments Overview</h2>
+            <header>
+               <div class="search-wrapper">
+                  <span class="fa fa-search" aria-hidden="true"></span>
+                  <input type="search" id="search" placeholder="Search">
+               </div>
+            </header>
+            <section class="recent1">
+               <div id="activity-grid2">
+                  <div class="activity-card">
+                     <h3>Departments</h3>
+                     <div class="table-responsive" id="tbl-responsive">
+                        <table id="table"></table>
+                     </div>
+                     <div id="index_native" class="box"></div>
+                  </div>
+               </div>
+            </section>
+            <div id="id01" class="modal">
+               <form class="modal-content animate" action="/action_page.php" method="post">
+                  <div class="container" style="overflow-x: auto; max-height: 350px;">
+                     <label for="school_id"><b>Department Population</b></label>
+                     <p id="population"></p>
+                     <label for="school_id"><b>No. of Regular Students</b></label>
+                     <p id="regular"></p>
+                     <label for="school_id"><b>No. of Irregular Students</b></label>
+                     <p id="irregular"></p>
+                     <label for="school_id"><b>No. of Transferee Students</b></label>
+                     <p id="transferee"></p>
+                     <table id="tablemodal"></table>
+                     <div id="piechart"></div>
+                     <div id="donutchart"></div>
+                  </div>
+                  <div class="container" style="background-color:#f1f1f1">
+                     <button type="button" id="modalbtn" class="cancelbtn">Okay</button>
+                  </div>
+               </form>
+            </div>
+         </main>
+         <div class="footer">
+            <p style="text-align: center">
+               Copyright &copy; <script>document.write(new Date().getFullYear())</script> BSCS3C All Rights Reserved
+            </p>
+         </div>
+      </div>
+   </body>
+   <script src="assets/js/department.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.js"></script>
+   <script src="assets/js/logout.js"></script>
+   <style>
+      tfoot input {
+          width: 100%;
+          padding: 4px;
+          box-sizing: border-box;
+      }
+      #table-grid{
+          display: grid;
+          padding: 2rem;
+          max-height: 700px;
+          overflow-y: scroll;
+          background: #fff;
+          border-radius: 7px;
+          box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+      }
+    </style> 
+    <style> 
+      body {
+          font-family: Arial, Helvetica, sans-serif;
+      }
+      /* Full-width input fields */
+      input[type=text], input[type=password] {
+          width: 500px;
+          padding: 12px 20px;
+          margin: 8px 0;
+          display: inline-block;
+          border: 1px solid #ccc;
+          box-sizing: border-box;
+      }
+      /* Set a style for all buttons */
+      button {
+          background-color: #04AA6D;
+          color: white;
+          padding: 14px 20px;
+          margin: 8px 0;
+          border: none;
+          cursor: pointer;
+      }
+      button:hover {
+          opacity: 0.8;
+      }
+      /* Extra styles for the cancel button */
+      .cancelbtn {
+          width: auto;
+          padding: 10px 18px;
+          background-color: #f44336;
+      }
+      /* Center the image and position the close button */
+      .imgcontainer {
+          text-align: center;
+          margin: 24px 0 12px 0;
+          position: relative;
+      }
+      img.avatar {
+          width: 40%;
+          border-radius: 50%;
+      }
+      .container {
+          padding: 16px;
+      }
+      span.psw {
+          float: right;
+          padding-top: 16px;
+      }
+      /* The Modal (background) */
+      .modal {
+          display: none;
+          /* Hidden by default */
+          position: absolute;
+          /* Stay in place */
+          z-index: 1;
+          /* Sit on top */
+          left: 0;
+          top: 0;
+          width: 100%;
+          /* Full width */
+          height: 94%;
+          /* Full height */
+          /*overflow: auto;
+          */
+          /* Enable scroll if needed */
+          background-color: rgb(0,0,0);
+          /* Fallback color */
+          background-color: rgba(0,0,0,0.4);
+          /* Black w/ opacity */
+          padding-top: 60px;
+      }
+      /* Modal Content/Box */
+      .modal-content {
+          background-color: #fefefe;
+          margin: 5% auto 15% auto;
+          /* 5% from the top, 15% from the bottom and centered */
+          border: 1px solid #888;
+          width: 500px;
+          /* Could be more or less, depending on screen size */
+      }
+      /* The Close Button (x) */
+      .close {
+          position: absolute;
+          right: 25px;
+          top: 0;
+          color: #000;
+          font-size: 35px;
+          font-weight: bold;
+      }
+      .close:hover, .close:focus {
+          color: red;
+          cursor: pointer;
+      }
+      /* Add Zoom Animation */
+      .animate {
+          -webkit-animation: animatezoom 0.6s;
+          animation: animatezoom 0.6s 
+      }
+      @-webkit-keyframes animatezoom {
+          from {
+              -webkit-transform: scale(0)
+          }
+          to {
+              -webkit-transform: scale(1)
+          }
+      }
+      @keyframes animatezoom {
+          from {
+              transform: scale(0)
+          }
+          to {
+              transform: scale(1)
+          }
+      }
+      /* Change styles for span and cancel button on extra small screens */
+      @media screen and (max-width: 300px) {
+          span.psw {
+              display: block;
+              float: none;
+          }
+          .cancelbtn {
+              width: 100%;
+          }
+      }
+
+   </style>
+   <script type="text/javascript">
+      var box = paginator({
+          table: document.getElementById("tbl-responsive").getElementsByTagName("table")[0],
+          box_mode: "list",
+      });
+      box.className = "box";
+      document.getElementById("tbl-responsive").appendChild(box);
+   </script>
+</html>
