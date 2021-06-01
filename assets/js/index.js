@@ -21,7 +21,7 @@ window.onload = function () {
   async function fetchData() {
     const headers = ["enrollments", "attendances", "courses", "departments"];
     let values = await Promise.all([
-      fetch("https://softeng.jbtabz.com/enrollments?page=1&limit=50", {
+      fetch("https://softeng.jbtabz.com/enrollments", {
         headers: {
           "X-Component-Key": localStorage.getItem("component_key"),
           "X-Session-Token": localStorage.getItem("session_token"),
@@ -30,7 +30,7 @@ window.onload = function () {
             "Origin, X-Requested-With, Content-Type, Accept",
         },
       }).then((response) => response.json()),
-      fetch("https://softeng.jbtabz.com/attendances?page=1&limit=50", {
+      fetch("https://softeng.jbtabz.com/attendances", {
         headers: {
           "X-Component-Key": localStorage.getItem("component_key"),
           "X-Session-Token": localStorage.getItem("session_token"),
@@ -39,7 +39,7 @@ window.onload = function () {
             "Origin, X-Requested-With, Content-Type, Accept",
         },
       }).then((response) => response.json()),
-      fetch("https://softeng.jbtabz.com/courses?page=1&limit=50", {
+      fetch("https://softeng.jbtabz.com/courses", {
         headers: {
           "X-Component-Key": localStorage.getItem("component_key"),
           "X-Session-Token": localStorage.getItem("session_token"),
@@ -48,7 +48,7 @@ window.onload = function () {
             "Origin, X-Requested-With, Content-Type, Accept",
         },
       }).then((response) => response.json()),
-      fetch("https://softeng.jbtabz.com/departments?page=1&limit=50", {
+      fetch("https://softeng.jbtabz.com/departments", {
         headers: {
           "X-Component-Key": localStorage.getItem("component_key"),
           "X-Session-Token": localStorage.getItem("session_token"),

@@ -21,7 +21,7 @@ window.onload = function () {
   
   async function fetchData() {
     const response = await fetch(
-      "https://softeng.jbtabz.com/enrollments?page=1&limit=50",
+      "https://softeng.jbtabz.com/enrollments",
       {
         headers: {
           "X-Component-Key": localStorage.getItem("component_key"),

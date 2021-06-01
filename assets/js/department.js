@@ -16,12 +16,12 @@ window.onload = function () {
         timer: 1000,
       });
     }
-    contents = fetchData();
+    fetchData();
   };
   
   async function fetchCourse() {
     const response = await fetch(
-      "https://softeng.jbtabz.com/courses?page=1&limit=50",
+      "https://softeng.jbtabz.com/courses",
       {
         headers: {
           "X-Component-Key": localStorage.getItem("component_key"),
@@ -38,7 +38,7 @@ window.onload = function () {
   
   async function fetchData() {
     const response = await fetch(
-      "https://softeng.jbtabz.com/departments?page=1&limit=50",
+      "https://softeng.jbtabz.com/departments",
       {
         headers: {
           "X-Component-Key": localStorage.getItem("component_key"),
@@ -107,7 +107,7 @@ window.onload = function () {
       let count = 0;
       var populace = [];
       const response = await fetch(
-        "https://softeng.jbtabz.com/enrollments?page=1&limit=50",
+        "https://softeng.jbtabz.com/enrollments",
         {
           headers: {
             "X-Component-Key": localStorage.getItem("component_key"),
